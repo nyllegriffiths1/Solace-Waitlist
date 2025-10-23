@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solace - Join the Waitlist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f0f2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #2c3e50;
+        }
+
+        .container {
+            background: white;
+            border-radius: 24px;
+            padding: 48px 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #7db59a, #a8c8a5);
+        }
+
+        .logo {
+            margin-bottom: 24px;
+        }
+
+        .app-title {
+            font-size: 42px;
+            font-weight: 300;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .tagline {
+            font-size: 16px;
+            color: #7f8c8d;
+            margin-bottom: 32px;
+            font-weight: 400;
+        }
+
+        .description {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #34495e;
+            margin-bottom: 32px;
+        }
+
+        .features {
+            text-align: left;
+            margin-bottom: 32px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+            padding: 12px 0;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: #7db59a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            font-size: 18px;
+        }
+
+        .feature-text {
+            font-size: 16px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #2c3e50;
+            font-size: 14px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #7db59a;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(125, 181, 154, 0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #7db59a, #a8c8a5);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 8px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(125, 181, 154, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .privacy-note {
+            font-size: 12px;
+            color: #7f8c8d;
+            margin-top: 16px;
+            line-height: 1.4;
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 32px 24px;
+            }
+
+            .app-title {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1 class="app-title">solace</h1>
+            <p class="tagline">find peace in your journey</p>
+        </div>
+
+        <div class="description">
+            <p>A mindful travel companion that helps you discover authentic local experiences and reflect on meaningful moments.</p>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🌍</div>
+                <div class="feature-text">AI-powered local experience suggestions</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">💭</div>
+                <div class="feature-text">Mindful reflection prompts</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">💡</div>
+                <div class="feature-text">Authentic local tips and insights</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📱</div>
+                <div class="feature-text">Beautiful, distraction-free design</div>
+            </div>
+        </div>
+
+        <form id="waitlistForm" action="https://youform.com/submit/2e25enxe" method="POST">
+            <div class="success-message" id="successMessage">
+                🎉 You're on the list! We'll notify you when Solace launches.
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" id="email" name="email" class="form-input" required placeholder="your@email.com">
+            </div>
+
+            <div class="form-group">
+                <label for="name" class="form-label">First Name (Optional)</label>
+                <input type="text" id="name" name="name" class="form-input" placeholder="Your name">
+            </div>
+
+            <div class="form-group">
+                <label for="location" class="form-label">Where do you love to travel? (Optional)</label>
+                <input type="text" id="location" name="location" class="form-input" placeholder="Bali, Tokyo, local hidden gems...">
+            </div>
+
+            <button type="submit" class="submit-btn">Join the Waitlist</button>
+
+            <p class="privacy-note">
+                We respect your privacy. Your email will only be used to notify you about Solace's launch.
+                No spam, no sharing with third parties.
+            </p>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Submit to YouForm
+            fetch(e.target.action, {
+                method: 'POST',
+                body: new FormData(e.target),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    // Show success message
+                    document.getElementById('successMessage').style.display = 'block';
+                    // Hide form
+                    e.target.style.display = 'none';
+                    // Scroll to top
+                    window.scrollTo(0, 0);
+                } else {
+                    alert('Something went wrong. Please try again.');
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+                alert('Something went wrong. Please try again.');
+            });
+        });
+
+        // Add some interactive effects
+        document.querySelectorAll('.form-input').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'scale(1.02)';
+            });
+
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
