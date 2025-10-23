@@ -210,7 +210,7 @@
             </div>
         </div>
 
-        <form id="waitlistForm" action="https://youform.com/submit/2e25enxe" method="POST">
+        <form id="waitlistForm" action="https://app.youform.com/submit/2e25enxe" method="POST">
             <div class="success-message" id="successMessage">
                 🎉 You're on the list! We'll notify you when Solace launches.
             </div>
@@ -241,30 +241,13 @@
 
     <script>
         document.getElementById('waitlistForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+            // Let the form submit naturally to YouForm
+            // YouForm will handle the redirect back to a success page
 
-            // Submit to YouForm
-            fetch(e.target.action, {
-                method: 'POST',
-                body: new FormData(e.target),
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    // Show success message
-                    document.getElementById('successMessage').style.display = 'block';
-                    // Hide form
-                    e.target.style.display = 'none';
-                    // Scroll to top
-                    window.scrollTo(0, 0);
-                } else {
-                    alert('Something went wrong. Please try again.');
-                }
-            }).catch(error => {
-                console.error('Error:', error);
-                alert('Something went wrong. Please try again.');
-            });
+            // Optional: Show a loading state
+            const submitBtn = document.querySelector('.submit-btn');
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
         });
 
         // Add some interactive effects
