@@ -210,10 +210,13 @@
             </div>
         </div>
 
-        <form id="waitlistForm" action="https://app.youform.com/submit/2e25enxe" method="POST">
+        <form id="waitlistForm" action="https://formspree.io/f/xvgpkjqw" method="POST">
             <div class="success-message" id="successMessage">
                 🎉 You're on the list! We'll notify you when Solace launches.
             </div>
+
+            <!-- Hidden redirect field for Formspree -->
+            <input type="hidden" name="_next" value="https://nyllegriffiths1.github.io/Solace-Waitlist/?success=true">
 
             <div class="form-group">
                 <label for="email" class="form-label">Email Address</label>
@@ -240,10 +243,15 @@
     </div>
 
     <script>
-        document.getElementById('waitlistForm').addEventListener('submit', function(e) {
-            // Let the form submit naturally to YouForm
-            // YouForm will handle the redirect back to a success page
+        // Check if redirected back with success parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === 'true') {
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('waitlistForm').style.display = 'none';
+            window.scrollTo(0, 0);
+        }
 
+        document.getElementById('waitlistForm').addEventListener('submit', function(e) {
             // Optional: Show a loading state
             const submitBtn = document.querySelector('.submit-btn');
             submitBtn.textContent = 'Submitting...';
